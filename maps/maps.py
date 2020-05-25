@@ -1,4 +1,5 @@
 from typing import Dict
+
 import googlemaps
 
 
@@ -12,9 +13,13 @@ def get_location(question: str) -> Dict:
     """
     gmaps = googlemaps.Client(key='AIzaSyAI6WPMSEM0YvN81wqDaZsnbNmKNldwe_4')
 
-    result = gmaps.geocode('auchan nogent sur oise')
+    result = gmaps.geocode(question)
 
     coordonates = result[0]['geometry']['location']
+
+    coordonates['lat'] = float(coordonates['lat'])
+
+    coordonates['lng'] = float(coordonates['lng'])
 
     return coordonates
 

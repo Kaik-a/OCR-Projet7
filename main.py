@@ -1,9 +1,10 @@
 """Main python file to execute"""
 from maps import maps
+from wiki import wiki
 
 
 def main():
-    print(maps.get_location("tour eiffel"))
+    print(wiki.get_info_on_loc(maps.get_location("tour eiffel")))
 
 
 if __name__ == "__main__":
