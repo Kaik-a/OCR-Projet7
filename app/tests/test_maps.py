@@ -1,4 +1,4 @@
-from maps import maps
+from app import maps
 
 
 def test_get_location():

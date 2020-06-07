@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Grand-Py Bot</title>
+</head>
+<body>
+    <script>
+        let question = document.querySelector("#id_de_input");
+        question.addEventListener("submit", function (event) {
+            event.preventDefault();
+
+            fetch("/question", {
+                method: "POST",
+                body: new FormData(form)
+            })
+        })
+    </script>
+</body>
+</html>
