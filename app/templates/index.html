@@ -5,15 +5,23 @@
     <title>Grand-Py Bot</title>
 </head>
 <body>
+    <form action="{{ url_for('question') }}" id="form_id">
+        <label for="input_question">Posez votre question:</label>
+        <input type="text" name="name_input_question" id="input_question">
+        <input type="submit" id="submit_button">
+    </form>
+    <textarea id="textarea_id"></textarea>
     <script>
-        let question = document.querySelector("#id_de_input");
-        question.addEventListener("submit", function (event) {
+        let form = document.querySelector("#form_id");
+        form.addEventListener("submit", function (event) {
             event.preventDefault();
 
             fetch("/question", {
                 method: "POST",
                 body: new FormData(form)
             })
+            .then(answer => answer.json())
+            .then(answer => document.getElementById("textarea_id").textContent = answer);
         })
     </script>
 </body>

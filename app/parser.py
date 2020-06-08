@@ -50,7 +50,7 @@ def unclutter(questions: list) -> List:
     """
     for index, question in enumerate(questions):
         for stopword in stopwords:
-            question = sub(r'\b' + f'{stopword}' r'\b', '', question)
+            question = sub(r'\b' + f'{stopword}' r'\b ', ' ', question)
         questions[index] = question
         # remove multiple contiguous spaces
         questions[index] = sub(' {2,}', ' ', question)
@@ -189,4 +189,3 @@ def prepare(sentence: str) -> List:
 
 
 # print(prepare(test), '\n', prepare(test2))
-
