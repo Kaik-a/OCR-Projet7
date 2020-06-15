@@ -1,8 +1,8 @@
 """Media wiki interface"""
 from random import choice
+import re
+import requests
 from typing import Dict, List, Union
-
-from mediawiki import MediaWiki
 
 
 def get_info_on_loc(locations: List[Dict]) -> Union[str, List]:
@@ -12,23 +12,47 @@ def get_info_on_loc(locations: List[Dict]) -> Union[str, List]:
     :param locations: locations to search for
     :return: Union[str, List]
     """
-    wiki: MediaWiki = MediaWiki(lang=u'fr')
-
-    results = [wiki.geosearch(latitude=location['lat'],
-                              longitude=location['lng'],
-                              results=1) for location in locations]
-
+    results = [
+        requests.get(
+            "https://fr.wikipedia.org/w/api.php",
+            {
+             "action": "query",
+             "list": "geosearch",
+             "format": "json",
+             "gscoord": f"{location['lat']}|{location['lng']}"
+            }).json()['query']['geosearch'] for location in locations
+    ]
     if len(results) == 1:
-        return wiki.page(results[0][0]).summary
+        return get_summary(results[0][0])
     elif not results:
         print("Quoi!? C'est quoi ce charabia? Je comprends rien à votre "
               "language de jeuns, tu peux poser ta question correctement ?")
     else:
         places_found = [
-            (index, wiki.page(result[0]))
+            (index, result[0])
             for index, result in enumerate(results)
         ]
-        return multiple_choices(places_found).summary
+        return get_summary(multiple_choices(places_found))
+
+
+def get_summary(page: Dict) -> str:
+    """
+    Get summary from wikipedi.
+
+    :param page: page to find the summary
+    :return: str summary
+    """
+    fullpage = requests.get(
+        'https://fr.wikipedia.org/w/api.php',
+        {'action': 'query',
+         'format': 'json',
+         'prop': 'extracts',
+         'titles': f"{page['title']}"}
+    )
+    fulltext = fullpage.json()['query']['pages'][f'{page["pageid"]}']['extract']
+    summary = fulltext.split('<h2>')[0]
+    pattern = "([<].*?[>])"
+    return re.sub(pattern, '', summary)
 
 
 def endow(summary: str) -> str:
@@ -48,17 +72,17 @@ def endow(summary: str) -> str:
     return f"{choice(introduction)} {summary}"
 
 
-def multiple_choices(choices: List) -> MediaWiki:
+def multiple_choices(choices: List) -> Dict:
     """
     When the sentence contains multiple questions help grandpy to found the
     good one.
 
     :param List choices: List of places found.
-    :return: Mediawiki
+    :return: Dict
     """
     print(f"Tu parles de tout et de rien, tu cherches quoi exactement?")
     for place in choices:
-        print(f'{place[0]} - {place[1].title}')
+        print(f'{place[0]} - {place[1]["title"]}')
     answer = input("Tape le chiffre de ce que tu recherches: ")
     try:
         answer = int(answer)

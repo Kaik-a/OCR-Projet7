@@ -1,3 +1,4 @@
+requests
 flask
 googlemaps>=4.4.0
 pymediawiki>=0.6.4
