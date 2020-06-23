@@ -1,11 +1,13 @@
 """Media wiki interface"""
+from difflib import get_close_matches
 from random import choice
 import re
 import requests
 from typing import Dict, List, Union
 
 
-def get_info_on_loc(locations: List[Dict]) -> Union[str, List]:
+def get_info_on_loc(locations: List[Dict],
+                    parsed: List[Dict]) -> Union[str, List]:
     """
     Get information of a place by using its location.
 
@@ -22,15 +24,40 @@ def get_info_on_loc(locations: List[Dict]) -> Union[str, List]:
              "gscoord": f"{location['lat']}|{location['lng']}"
             }).json()['query']['geosearch'] for location in locations
     ]
+    possible_matches: List = [
+        [match['title'] for match in result] for result in results
+    ]
     if len(results) == 1:
-        return get_summary(results[0][0])
+        best_match: str = get_close_matches(
+            parsed[0],
+            possible_matches[0],
+            1
+        )[0]
+        return get_summary(
+            [
+                result for result in results[0]
+                if result['title'] == best_match
+            ].pop()
+        )
     elif not results:
         print("Quoi!? C'est quoi ce charabia? Je comprends rien à votre "
               "language de jeuns, tu peux poser ta question correctement ?")
     else:
+        i = 0
+        best_matches = []
+        for parse in parsed:
+            best_match = get_close_matches(
+                    parse, possible_matches[i], 1
+                )
+            if best_match:
+                best_matches.append(best_match[0])
+            else:
+                best_matches.append(possible_matches[i][0])
+            i += 1
+
         places_found = [
-            (index, result[0])
-            for index, result in enumerate(results)
+            (index, result)
+            for index, result in enumerate(best_matches)
         ]
         return get_summary(multiple_choices(places_found))
 

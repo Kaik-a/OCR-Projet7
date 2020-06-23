@@ -10,8 +10,18 @@
         <input type="text" name="name_input_question" id="input_question">
         <input type="submit" id="submit_button">
     </form>
-    <textarea id="textarea_id"></textarea>
+    <textarea id="textarea_id" style="height: 200px"></textarea>
+    <div id="map" style="height: 200px;"></div>
     <script>
+        let map;
+        let latitude = 0;
+        let longitude = 0;
+        function initMap() {
+            map = new google.maps.Map(document.getElementById("map"), {
+                center: new google.maps.LatLng(latitude, longitude),
+                zoom: 12
+            });
+        }
         let form = document.querySelector("#form_id");
         form.addEventListener("submit", function (event) {
             event.preventDefault();
@@ -20,9 +30,17 @@
                 method: "POST",
                 body: new FormData(form)
             })
-            .then(answer => answer.json())
-            .then(answer => document.getElementById("textarea_id").textContent = answer);
-        })
+                .then(answer => answer.json())
+                .then(answer => {
+                    latitude = parseFloat(answer.coordonates[0].lat);
+                    longitude = parseFloat(answer.coordonates[0].lng);
+                    document.getElementById("textarea_id").textContent = answer.message;
+                    map.setCenter({lat: latitude, lng: longitude},
+                    marker = new google.maps.Marker({position: {lat: latitude, lng: longitude},
+                    map: map}))
+                });
+        });
     </script>
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAI6WPMSEM0YvN81wqDaZsnbNmKNldwe_4&callback=initMap"></script>
 </body>
 </html>
