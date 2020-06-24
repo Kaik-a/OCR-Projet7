@@ -2,18 +2,26 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
     <title>Grand-Py Bot</title>
+    <h1 id="main_title">
+        Grand-Py Bot
+        <img id="grandpa" alt="grandpa_logo" src="../static/Grandpa.jpeg">
+    </h1>
 </head>
 <body>
-    <form action="{{ url_for('question') }}" id="form_id">
-        <label for="input_question">Posez votre question:</label>
-        <input type="text" name="name_input_question" id="input_question">
-        <input type="submit" id="submit_button">
-    </form>
-    <textarea id="textarea_id" style="height: 200px"></textarea>
-    <div id="map" style="height: 200px;"></div>
+    <div id="map"></div>
+    <div id="container">
+        <form action="{{ url_for('question') }}" id="form_id">
+            <label for="input_question">Posez votre question:</label>
+            <input type="text" name="name_input_question" id="input_question">
+            <input type="submit" id="submit_button">
+        </form>
+        <textarea id="textarea_id" style="height: 200px"></textarea>
+    </div>
     <script>
         let map;
+        let marker;
         let latitude = 0;
         let longitude = 0;
         function initMap() {
@@ -35,6 +43,9 @@
                     latitude = parseFloat(answer.coordonates[0].lat);
                     longitude = parseFloat(answer.coordonates[0].lng);
                     document.getElementById("textarea_id").textContent = answer.message;
+                    if (typeof marker !== 'undefined') {
+                       marker.setMap(null)
+                    }
                     map.setCenter({lat: latitude, lng: longitude},
                     marker = new google.maps.Marker({position: {lat: latitude, lng: longitude},
                     map: map}))
