@@ -3,6 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
     <title>Grand-Py Bot</title>
     <h1 id="main_title">
         Grand-Py Bot
@@ -10,14 +12,54 @@
     </h1>
 </head>
 <body>
-    <div id="map"></div>
-    <div id="container">
-        <form action="{{ url_for('question') }}" id="form_id">
-            <label for="input_question">Posez votre question:</label>
-            <input type="text" name="name_input_question" id="input_question">
-            <input type="submit" id="submit_button">
-        </form>
-        <textarea id="textarea_id" style="height: 200px"></textarea>
+    <div class="container">
+        <div class="msg-header">
+            <div class="msg-header-img">
+                <img class="profile-img" src="../static/Grandpa.jpeg">
+            </div>
+            <div class="active">
+                <h4>GrandPy</h4>
+                <h6>1 hour ago...</h6>
+            </div>
+        </div>
+        <div class="chat-page">
+            <div class="msg-inbox">
+                <div class="chats">
+                    <div class="msg-page">
+                        <div class="received-chats">
+                            <div class="received-chats-img">
+                                <img class="profile-img" src="../static/Grandpa.jpeg" alt="GrandPy">
+                            </div>
+                            <div class="received-msg">
+                                <div class="received-msg-inbox">
+                                    <p>New message</p>
+                                    <span class="time">12:00 PM | October 21</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="outgoing-chats">
+                            <div class="outgoing-chats-msg">
+                                    <p>Answer</p>
+                                    <span class="time">12:02 PM | October 21</span>
+                            </div>
+                            <div class="outgoing-chats-img">
+                                <img class="profile-img" src="../static/user.png" alt="user">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="msg-bottom">
+            <div class="input-group">
+                <input type="text" class="form-control" placeholder="write message...">
+                <div class="input-group-append">
+                    <span class="input-group-text">
+                        <i class="fa fa-paper-plane"></i>
+                    </span>
+                </div>
+            </div>
+        </div>
     </div>
     <script>
         let map;
