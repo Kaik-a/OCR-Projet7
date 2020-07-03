@@ -21,7 +21,7 @@
         <div class="chat-page">
             <div class="msg-inbox">
                 <div class="chats">
-                    <div class="msg-page">
+                    <div id="chat-zone" class="msg-page">
                         <div class="received-chats">
                             <div class="received-chats-img">
                                 <img class="profile-img" src="../static/Grandpa.jpeg" alt="GrandPy">
@@ -58,6 +58,82 @@
         </div>
     </div>
     <script>
+        function getDate() {
+            const monthNames =  [
+                "Janvier", "Février", "Mars", "Avril", "Mai", "Juin", "Juillet",
+                "Août", "Septembre", "Octobre", "Novembre", "Décembre"
+            ];
+            let date = new Date();
+            let hh = date.getHours();
+            let mm = date.getMinutes();
+            let dd = date.getDate();
+            let MM = monthNames[date.getMonth()];
+
+            return hh + ":" + mm + " | " + MM + " " + dd
+        }
+
+        function outgoingMessage(message) {
+            let outgoing = new document.createElement("div");
+            outgoing.className = "outgoing-chats";
+
+            let outgoingMsg = new document.createElement("div");
+            outgoingMsg.className = "outgoing-chats-msg";
+
+            let answer = new document.createElement("p");
+            answer.textContent = message;
+
+            let datetime = new document.createElement("span");
+            datetime.className = "time";
+            datetime.textContent = getDate();
+
+            let outgoingChatImg = new document.createElement("div");
+            outgoingChatImg.className = "outgoing-chats-img";
+
+            let outgoingProfile = new document.createElement("img");
+            outgoingProfile.className = "profile-img";
+            outgoingProfile.src = "../static/user.png";
+            outgoingProfile.alt = "user";
+
+            let msgPage = document.getElementById("chat-zone");
+            outgoingMsg.appendChild(answer);
+            outgoingMsg.appendChild(datetime);
+            outgoingChatImg.appendChild(outgoingProfile);
+            outgoing.appendChild(outgoingMsg);
+            outgoing.appendChild(outgoingChatImg);
+            msgPage.appendChild(outgoing);
+        }
+
+        function receivedMessage(message) {
+            let received = new document.createElement("div");
+            received.className = "received-chats";
+
+            let receivedMsg = new document.createElement("div");
+            receivedMsg.className = "received-msg";
+
+            let answer = new document.createElement("p");
+            answer.textContent = message;
+
+            let datetime = new document.createElement("span");
+            datetime.className = "time";
+            datetime.textContent = getDate();
+
+            let receivedChatImg = new document.createElement("div");
+            receivedChatImg.className = "received-chats-img";
+
+            let receivedProfile = new document.createElement("img");
+            receivedProfile.className = "profile-img";
+            receivedProfile.src = "../static/Grandpa.jpeg";
+            receivedProfile.alt = "grandpy";
+
+            let msgPage = document.getElementById("chat-zone");
+            receivedMsg.appendChild(answer);
+            receivedMsg.appendChild(datetime);
+            receivedChatImg.appendChild(receivedProfile);
+            received.appendChild(receivedChatImg);
+            received.appendChild(receivedMsg);
+            msgPage.appendChild(received);
+        }
+
         let map;
         let marker;
         let latitude = 0;
@@ -88,7 +164,7 @@
                     marker = new google.maps.Marker({position: {lat: latitude, lng: longitude},
                     map: map}))
                 });
-        });
+        });q
     </script>
     <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAI6WPMSEM0YvN81wqDaZsnbNmKNldwe_4&callback=initMap"></script>
 </body>
