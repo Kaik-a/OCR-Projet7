@@ -31,6 +31,10 @@
     letter-spacing: 0.5px;
 }
 
+#main-container {
+    font-size: 0;
+}
+
 .profile-img {
     max-width: 100%;
     border-radius: 50%;
@@ -74,7 +78,8 @@
 }
 
 .chat-page {
-    padding: 0 0 50px 0;
+    padding: 0 0 0 0;
+    font-size: 0;
 }
 
 .msg-inbox {
@@ -86,6 +91,7 @@
 .msg-page {
     height: 516px;
     overflow-y: auto;
+    margin-top: 0;
 }
 
 .received-chats-img {
@@ -170,7 +176,7 @@
 
 .msg-bottom {
     position: relative;
-    height: 10%;
+    height: 60px;
     background-color: #007bff;
 }
 
@@ -195,7 +201,6 @@
 }
 
 .input-group .fa {
-    color: #fff;
     padding: 5px;
 }
 
