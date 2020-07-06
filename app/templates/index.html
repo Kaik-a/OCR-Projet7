@@ -7,7 +7,15 @@
     <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
     <title>Grand-Py Bot</title>
 </head>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAI6WPMSEM0YvN81wqDaZsnbNmKNldwe_4"></script>
 <body>
+    <header class="head">
+        <img id="logo" class="logo-img" src="../static/Grandpa.jpeg" alt="logo">
+        <div>
+            <h3 class="page-name">GrandPy Bot</h3>
+            <h5 class="motto">On a toujours besoin d'un grand-père pour se diriger !</h5>
+        </div>
+    </header>
     <div class="container" id="main-container">
         <div class="msg-header">
             <div class="msg-header-img">
@@ -22,42 +30,48 @@
             <div class="msg-inbox">
                 <div class="chats">
                     <div id="chat-zone" class="msg-page">
-                        <div class="received-chats">
-                            <div class="received-chats-img">
-                                <img class="profile-img" src="../static/Grandpa.jpeg" alt="GrandPy">
-                            </div>
-                            <div class="received-msg">
-                                <div class="received-msg-inbox">
-                                    <p>New message</p>
-                                    <span class="time">12:00 PM | October 21</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="outgoing-chats">
-                            <div class="outgoing-chats-msg">
-                                    <p>Answer</p>
-                                    <span class="time">12:02 PM | October 21</span>
-                            </div>
-                            <div class="outgoing-chats-img">
-                                <img class="profile-img" src="../static/user.png" alt="user">
-                            </div>
-                        </div>
                     </div>
                 </div>
             </div>
         </div>
         <div class="msg-bottom">
             <div class="input-group">
-                <input type="text" class="form-control" placeholder="write message...">
-                <div class="input-group-append">
-                    <span class="input-group-text">
-                        <i class="fa fa-paper-plane"></i>
-                    </span>
-                </div>
+                <form>
+                    <input id="inputText" type="text" class="form-control" placeholder="Aa">
+                    <div class="input-group-append">
+                        <span class="input-group-text">
+                            <button id="subButton" class="btn" onclick="outgoingMessage()"><i class="fa fa-paper-plane"></i></button>
+                        </span>
+                    </div>
+                </form>
             </div>
         </div>
     </div>
+    <footer>
+        <div class="foot">
+            <div class="column1">
+                <h4>Mehdi BICHARI</h4>
+            </div>
+            <div class="column2">
+                <p>https://github.com/Kaik-a <img class="link" src="../static/GitHub.png" alt="github"></p>
+                <p>https://www.linkedin.com/in/mehdi-bichari/<img class="link" src="../static/LinkedIn.png" alt="linkedin"></p>
+            </div>
+        </div>
+    </footer>
     <script>
+        function initMap() {
+
+        }
+        let mapID = 0;
+        let message;
+        let address;
+        let input = document.getElementById("inputText");
+
+        let welcome = "Bonjour mon ptit! Ta maman m'a dit que ton sens de l'orientation était proche du zéro absolu! Si tu as" +
+            " besoin de te rendre quelque part, demande-moi, je sais tout! Enfin presque... T'aurais pas vu mon dentier? ";
+
+        receivedMessage({'message' : welcome});
+
         function getDate() {
             const monthNames =  [
                 "Janvier", "Février", "Mars", "Avril", "Mai", "Juin", "Juillet",
@@ -69,27 +83,48 @@
             let dd = date.getDate();
             let MM = monthNames[date.getMonth()];
 
-            return hh + ":" + mm + " | " + MM + " " + dd
+            hh = hh.toString();
+            mm = mm.toString();
+
+            if (hh.length !== 2) {
+                hh = "0" + hh
+            }
+
+            if (dd.length !== 2) {
+                mm = "0" + mm
+            }
+
+            return dd + " " + MM + " | " + hh + ":" + mm
         }
 
-        function outgoingMessage(message) {
-            let outgoing = new document.createElement("div");
+        function outgoingMessage() {
+
+            let inputText = document.getElementById("inputText");
+            message = inputText.value;
+
+            if (!message) {
+                return
+            }
+
+            inputText.value = null;
+
+            let outgoing = document.createElement("div");
             outgoing.className = "outgoing-chats";
 
-            let outgoingMsg = new document.createElement("div");
+            let outgoingMsg = document.createElement("div");
             outgoingMsg.className = "outgoing-chats-msg";
 
-            let answer = new document.createElement("p");
+            let answer = document.createElement("p");
             answer.textContent = message;
 
-            let datetime = new document.createElement("span");
+            let datetime = document.createElement("span");
             datetime.className = "time";
             datetime.textContent = getDate();
 
-            let outgoingChatImg = new document.createElement("div");
+            let outgoingChatImg = document.createElement("div");
             outgoingChatImg.className = "outgoing-chats-img";
 
-            let outgoingProfile = new document.createElement("img");
+            let outgoingProfile = document.createElement("img");
             outgoingProfile.className = "profile-img";
             outgoingProfile.src = "../static/user.png";
             outgoingProfile.alt = "user";
@@ -101,71 +136,97 @@
             outgoing.appendChild(outgoingMsg);
             outgoing.appendChild(outgoingChatImg);
             msgPage.appendChild(outgoing);
+
+            outgoing.scrollIntoView()
         }
 
-        function receivedMessage(message) {
-            let received = new document.createElement("div");
+        function receivedMessage(dict_answer) {
+            let received = document.createElement("div");
             received.className = "received-chats";
 
-            let receivedMsg = new document.createElement("div");
+            let receivedMsg = document.createElement("div");
             receivedMsg.className = "received-msg";
 
-            let answer = new document.createElement("p");
-            answer.textContent = message;
+            let receivedInbox = document.createElement("div");
+            receivedInbox.className = "received-msg-inbox";
 
-            let datetime = new document.createElement("span");
+            let answer = document.createElement("p");
+            answer.textContent = dict_answer['message'];
+
+            let datetime = document.createElement("span");
             datetime.className = "time";
             datetime.textContent = getDate();
 
-            let receivedChatImg = new document.createElement("div");
+            let receivedChatImg = document.createElement("div");
             receivedChatImg.className = "received-chats-img";
 
-            let receivedProfile = new document.createElement("img");
+            let receivedProfile = document.createElement("img");
             receivedProfile.className = "profile-img";
             receivedProfile.src = "../static/Grandpa.jpeg";
             receivedProfile.alt = "grandpy";
 
             let msgPage = document.getElementById("chat-zone");
-            receivedMsg.appendChild(answer);
-            receivedMsg.appendChild(datetime);
+
+            if (('location' in dict_answer)&&('lat' in dict_answer['location'])&&(dict_answer['location']['lat']))  {
+                let map = document.createElement("div");
+                map.className = "map";
+                map.id = "map" + mapID;
+                msgPage.appendChild(map);
+
+                let c_map = new google.maps.Map(document.getElementById('map' + mapID), {
+                    mapDiv: '100',
+                    center: {lat: dict_answer['location']['lat'], lng: dict_answer['location']['lng']},
+                    zoom: 15
+                });
+
+                let marker = new google.maps.Marker({position: {lat: dict_answer['location']['lat'], lng: dict_answer['location']['lng']},
+                map: c_map});
+
+                mapID += 1;
+            }
+            receivedInbox.appendChild(answer);
+            receivedInbox.appendChild(datetime);
+            receivedMsg.appendChild(receivedInbox);
             receivedChatImg.appendChild(receivedProfile);
             received.appendChild(receivedChatImg);
             received.appendChild(receivedMsg);
             msgPage.appendChild(received);
+
+            if ('scroll' in dict_answer) {
+                received.scrollIntoView()
+            }
+            else if (answer.textContent.startsWith('Quoi')) {
+                msgPage.scrollTo(0, msgPage.scrollHeight);
+            }
         }
 
-        let map;
-        let marker;
-        let latitude = 0;
-        let longitude = 0;
-        function initMap() {
-            map = new google.maps.Map(document.getElementById("map"), {
-                center: new google.maps.LatLng(latitude, longitude),
-                zoom: 12
-            });
-        }
-        let form = document.querySelector("#form_id");
-        form.addEventListener("submit", function (event) {
-            event.preventDefault();
+        let clickQuestion = document.getElementById("subButton");
 
+        clickQuestion.addEventListener("click", function (event) {
             fetch("/question", {
                 method: "POST",
-                body: new FormData(form)
+                body: JSON.stringify(message)
             })
                 .then(answer => answer.json())
                 .then(answer => {
-                    latitude = parseFloat(answer.coordonates[0].lat);
-                    longitude = parseFloat(answer.coordonates[0].lng);
-                    document.getElementById("textarea_id").textContent = answer.message;
-                    if (typeof marker !== 'undefined') {
-                       marker.setMap(null)
+                    let latitude;
+                    let longitude;
+                    if (answer.coordonates[0]  !== undefined) {
+                        latitude = parseFloat(answer.coordonates[0].lat);
+                        longitude = parseFloat(answer.coordonates[0].lng);
+                        address = answer.address;
+                        message = "L'adresse est " + address;
+                        receivedMessage({'message': message, 'scroll': true})
                     }
-                    map.setCenter({lat: latitude, lng: longitude},
-                    marker = new google.maps.Marker({position: {lat: latitude, lng: longitude},
-                    map: map}))
+                    message = answer.message;
+                    receivedMessage({
+                        'location': {'lat': latitude, 'lng': longitude},
+                        'message': message
+                    });
                 });
-        });q
+
+            event.preventDefault();
+        });
     </script>
-    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAI6WPMSEM0YvN81wqDaZsnbNmKNldwe_4&callback=initMap"></script>
 </body>
 </html>

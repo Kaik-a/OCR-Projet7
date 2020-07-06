@@ -1,5 +1,6 @@
-import requests
 from typing import Dict, List
+
+import requests
 
 
 def get_location(questions: List) -> List[Dict]:
@@ -13,22 +14,22 @@ def get_location(questions: List) -> List[Dict]:
     results = [
         requests.get(
             "https://maps.googleapis.com/maps/api/geocode/json",
-            {
-                'address': address,
-                'key': 'AIzaSyAI6WPMSEM0YvN81wqDaZsnbNmKNldwe_4'
-            }
+            {"address": address, "key": "AIzaSyAI6WPMSEM0YvN81wqDaZsnbNmKNldwe_4"},
         ).json()
         for address in questions
     ]
 
-    coordonates = [
-        result['results'][0]['geometry']['location'] for result in results
-        if result
+    locations = [
+        {
+            "coordonates": result["results"][0]["geometry"]["location"],
+            "address": result["results"][0]["formatted_address"],
+        }
+        for result in results
+        if result["results"]
     ]
 
-    for coordonate in coordonates:
-        coordonate['lat'] = float(coordonate['lat'])
-        coordonate['lng'] = float(coordonate['lng'])
+    for location in locations:
+        location["coordonates"]["lat"] = float(location["coordonates"]["lat"])
+        location["coordonates"]["lng"] = float(location["coordonates"]["lng"])
 
-    return coordonates
-
+    return locations
