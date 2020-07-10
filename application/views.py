@@ -1,6 +1,7 @@
 import application.maps as maps
 import application.parser as parser
 import application.wiki as wiki
+from application.app import app
 from flask import jsonify, render_template, request
 
 

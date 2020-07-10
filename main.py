@@ -1,5 +1,5 @@
 """Main python file to execute"""
-from application import app
+from application.app import app
 
 
 def main():
