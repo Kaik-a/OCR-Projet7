@@ -3,55 +3,61 @@
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
     <title>Grand-Py Bot</title>
-    <h1 id="main_title">
-        Grand-Py Bot
-        <img id="grandpa" alt="grandpa_logo" src="../static/Grandpa.jpeg">
-    </h1>
 </head>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAI6WPMSEM0YvN81wqDaZsnbNmKNldwe_4"></script>
 <body>
-    <div id="map"></div>
-    <div id="container">
-        <form action="{{ url_for('question') }}" id="form_id">
-            <label for="input_question">Posez votre question:</label>
-            <input type="text" name="name_input_question" id="input_question">
-            <input type="submit" id="submit_button">
-        </form>
-        <textarea id="textarea_id" style="height: 200px"></textarea>
+    <header class="head">
+        <img id="logo" class="logo-img" src="../static/Grandpa.jpeg" alt="logo">
+        <div>
+            <h3 class="page-name">GrandPy Bot</h3>
+            <h5 class="motto">On a toujours besoin d'un grand-père pour se diriger !</h5>
+        </div>
+    </header>
+    <div id="main-container">
+        <div class="msg-header">
+            <div class="msg-header-img">
+                <img class="profile-img" src="../static/Grandpa.jpeg">
+            </div>
+            <div class="active">
+                <h4>GrandPy</h4>
+                <h6>1 hour ago...</h6>
+            </div>
+        </div>
+        <div class="chat-page">
+            <div class="msg-inbox">
+                <div class="chats">
+                    <div id="chat-zone" class="msg-page">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="msg-bottom">
+            <div class="input-group">
+                <form>
+                    <input id="inputText" type="text" class="form-control" placeholder="Aa">
+                    <div class="input-group-append">
+                        <span class="input-group-text">
+                            <button id="subButton" class="btn" onclick="outgoingMessage()"><i class="fa fa-paper-plane"></i></button>
+                        </span>
+                    </div>
+                </form>
+            </div>
+        </div>
     </div>
-    <script>
-        let map;
-        let marker;
-        let latitude = 0;
-        let longitude = 0;
-        function initMap() {
-            map = new google.maps.Map(document.getElementById("map"), {
-                center: new google.maps.LatLng(latitude, longitude),
-                zoom: 12
-            });
-        }
-        let form = document.querySelector("#form_id");
-        form.addEventListener("submit", function (event) {
-            event.preventDefault();
-
-            fetch("/question", {
-                method: "POST",
-                body: new FormData(form)
-            })
-                .then(answer => answer.json())
-                .then(answer => {
-                    latitude = parseFloat(answer.coordonates[0].lat);
-                    longitude = parseFloat(answer.coordonates[0].lng);
-                    document.getElementById("textarea_id").textContent = answer.message;
-                    if (typeof marker !== 'undefined') {
-                       marker.setMap(null)
-                    }
-                    map.setCenter({lat: latitude, lng: longitude},
-                    marker = new google.maps.Marker({position: {lat: latitude, lng: longitude},
-                    map: map}))
-                });
-        });
-    </script>
-    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAI6WPMSEM0YvN81wqDaZsnbNmKNldwe_4&callback=initMap"></script>
+    <footer>
+        <div class="foot">
+            <div class="column1">
+                <h4 id="author">Mehdi BICHARI</h4>
+            </div>
+            <div class="column2">
+                <p class="link">https://github.com/Kaik-a <img class="link-img" src="../static/GitHub.png" alt="github"></p>
+                <p class="link">https://www.linkedin.com/in/mehdi-bichari/<img class="link-img" src="../static/LinkedIn.png" alt="linkedin"></p>
+            </div>
+        </div>
+    </footer>
+    <script type="application/javascript" src="../static/jsfile.js"></script>
 </body>
 </html>

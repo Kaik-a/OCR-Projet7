@@ -2,7 +2,7 @@
     background-color: deepskyblue;
     border-radius: 10px;
     padding: 30px;
-    max-width: available;
+    max-width: 100%;
 }
 
 #grandpa {
@@ -10,10 +10,12 @@
     width: 50px
 }
 
-#map {
+.map {
+    margin-left: 5%;
+    margin-right: 45%;
     float: left;
-    width: 500px;
-    height: 500px
+    width: 50%;
+    height: 70%;
 }
 
 #container {
@@ -21,4 +23,258 @@
     right: 8px;
     position: absolute;
 
+}
+
+#main-container {
+    font-size: 0;
+    margin: 0 0;
+    padding: 0;
+    height: 80%
+}
+
+.profile-img {
+    max-width: 100%;
+    border-radius: 50%;
+}
+
+.msg-header {
+    width: 100%;
+    height: 10%;
+    border-bottom: none;
+    display: inline-block;
+    background-color: #007bff;
+}
+
+.msg-header-img {
+    border-radius: 50%;
+    padding: 0 0 0 0;
+    width: 40px;
+    margin-left: 5%;
+    margin-top: 12px;
+    float: left;
+}
+
+.active {
+    width: 120px;
+    float: left;
+    margin-top: 10px;
+}
+
+.active h4 {
+    font-size: 20px;
+    margin-left: 10px;
+    color: #fff;
+}
+
+.active h6 {
+    font-size: 10px;
+    margin-left: 10px;
+    line-height: 2px;
+    color: #fff;
+}
+
+.head {
+    margin-bottom: 1px;
+    background-color: #007bff;
+    height: 10%;
+    display: flex;
+}
+
+html, body {
+    height: 100%;
+    min-height: 100%;
+}
+
+.head h4 {
+    position: center;
+}
+
+.foot {
+    display: grid;
+}
+
+footer {
+    height: 5%;
+}
+
+.column1 {
+    grid-column: 1/2;
+}
+
+.column2 {
+    grid-column: 2/2;
+    text-align: right;
+}
+
+.link-img {
+    padding-left: 10px;
+    width: 5%;
+}
+
+.link {
+    font-size: 12px;
+    margin-bottom: 5px;
+}
+
+.logo-img {
+    height: 80%;
+    padding: 10px;
+}
+
+.chat-page {
+    height: 80%;
+    padding: 0 0 0 0;
+    font-size: 0;
+}
+
+.msg-inbox {
+    height: 100%;
+    border: 1px solid #ccc;
+    overflow: hidden;
+    padding-bottom: 30px;
+}
+
+.msg-page {
+    height: 100%;
+    overflow-y: auto;
+    margin-top: 0;
+}
+
+.received-chats-img {
+    display: inline-block;
+    width: 20px;
+    float: left;
+}
+
+.received-msg {
+    display: inline-block;
+    margin: 5px;
+    padding: 0 0 0 10px;
+    vertical-align: top;
+    width: 92%;
+}
+
+.received-msg-inbox {
+    width: 57%;
+}
+
+.received-msg-inbox p {
+    background: #efefef none repeat scroll 0 0;
+    border-radius: 10px;
+    color: #646464;
+    font-size: 14px;
+    margin: 0;
+    padding: 5px 10px 5px 12px;
+}
+
+.time {
+    color: #777;
+    display: block;
+    font-size: 12px;
+    margin: 8px 0 0;
+}
+
+.outgoing-chats {
+    overflow: hidden;
+    margin: 26px 20px;
+}
+
+.chats {
+    height: 100%
+}
+.outgoing-chats-msg {
+    float: left;
+    width: 46%;
+    margin-left: 45%;
+}
+
+.outgoing-chats-msg p{
+    background: #007bff none repeat scroll 0 0;
+    color: #fff;
+    border-radius: 10px;
+    font-size: 14px;
+    margin: 0;
+    padding: 5px 10px 5px 12px;
+    width: 100%;
+}
+
+.outgoing-chats-img {
+    display: inline-block;
+    width: 20px;
+    float: right;
+}
+
+.received-msg {
+    display: inline-block;
+    padding: 0 0 0 10px;
+    vertical-align: top;
+    width: 92%;
+}
+
+.received-msg-inbox {
+    width: 57%;
+}
+
+.received-msg-inbox p {
+    background: #efefef none repeat scroll 0 0;
+    border-radius: 10px;
+    color: #646464;
+    font-size: 14px;
+    margin: 0;
+    padding: 5px 10px 5px 12px;
+}
+
+.msg-bottom {
+    height: 10%;
+    background-color: #007bff;
+}
+
+.input-group {
+    float: right;
+    margin-top: 10px;
+    margin-right: 20px;
+    outline: none !important;
+    border-radius: 20px;
+    width: 61% !important;
+    height: 70%;
+    background-color: #fff;
+}
+
+.form-control {
+    border: none !important;
+    border-radius: 20px !important;
+}
+
+.input-group-text {
+    background: transparent !important;
+    border: none !important;
+    height: 80%
+}
+
+.form-control:focus {
+    border-color: #646464 !important;
+    box-shadow: none !important;
+    border-radius: 20px;
+}
+
+#subButton {
+   display: none
+}
+
+.page-name {
+    font-family: Brush Script MT, serif;
+}
+
+.motto {
+    font-style: italic;
+    font-size: 70%;
+}
+
+#logo {
+    border-radius: 50%;
+}
+
+#author {
+    position: relative;
+    left: 5px;
 }
