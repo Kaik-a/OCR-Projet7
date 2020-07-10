@@ -5,9 +5,9 @@
 .idea/misc.xml
 .idea/modules.xml
 .idea/vcs.xml
-app/__pycache__/
+application/__pycache__/
 maps/__pycache__/
 wiki/__pycache__/
 /bookNLPtextminingV4.0-uneintroduction.pdf
 .DS_Store
-/app/static/.DS_Store
+/application/static/.DS_Store

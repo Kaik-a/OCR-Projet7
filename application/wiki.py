@@ -12,7 +12,7 @@ NULL_ANSWER = (
 )
 
 
-def get_info_on_loc(locations: List[Dict], parsed: List[Dict]) -> Union[str, List]:
+def get_info_on_loc(locations: List[Dict], parsed: List) -> Union[str, List]:
     """
     Get information of a place by using its location.
 

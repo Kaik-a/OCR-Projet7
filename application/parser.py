@@ -127,6 +127,8 @@ stopwords = {
     "beaucoup",
     "bien",
     "bigre",
+    "bonjour",
+    "bonsoir",
     "boum",
     "bravo",
     "brrr",
