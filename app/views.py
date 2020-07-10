@@ -1,6 +1,6 @@
-import application.maps as maps
-import application.parser as parser
-import application.wiki as wiki
+import app.maps as maps
+import app.parser as parser
+import app.wiki as wiki
 from flask import jsonify, render_template, request
 
 

@@ -2,7 +2,7 @@
 import unittest.mock as mock
 
 import requests
-from application import wiki
+from app import wiki
 
 from . import EIFFEL_TOWER_ABSTRACT, EIFFEL_TOWER_LOC, OCR_QUESTION
 
@@ -13,7 +13,7 @@ def test_get_info_on_loc():
     )
 
     patch = mock.patch(
-        "application.wiki.get_summary",
+        "app.wiki.get_summary",
         new=mock.Mock(
             return_value="La tour Eiffel  est une tour de fer puddlé de "
             "324\xa0mètres de hauteur (avec antennes) située à "

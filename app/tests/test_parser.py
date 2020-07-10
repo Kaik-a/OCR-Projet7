@@ -1,5 +1,5 @@
 """tests on parser module"""
-from application import parser
+from app import parser
 
 from . import MENTOR_1, MENTOR_2, OCR_QUESTION
 

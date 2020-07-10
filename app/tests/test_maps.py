@@ -1,7 +1,7 @@
 import unittest.mock as mock
 
 import requests
-from application import maps
+from app import maps
 
 from . import EIFFEL_TOWER_LOC
 
