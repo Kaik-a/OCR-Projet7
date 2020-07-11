@@ -278,3 +278,9 @@ footer {
     position: relative;
     left: 5px;
 }
+
+@media screen and (max-device-width: 480px) {
+    .received-answer {
+        font-size: 20px;
+    }
+}

@@ -91,6 +91,7 @@ function receivedMessage(dict_answer) {
 
     let answer = document.createElement("p");
     answer.textContent = dict_answer['message'];
+    answer.className = "received-answer";
 
     let datetime = document.createElement("span");
     datetime.className = "time";

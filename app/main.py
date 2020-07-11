@@ -1,5 +1,6 @@
 from flask import Flask
 
-from . import views
 
 app = Flask(__name__)
+
+from . import views
