@@ -3,6 +3,8 @@ import app.parser as parser
 import app.wiki as wiki
 from flask import jsonify, render_template, request
 
+from .main import app
+
 
 @app.route("/")
 def home():
