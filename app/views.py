@@ -3,12 +3,13 @@ import app.parser as parser
 import app.wiki as wiki
 from flask import jsonify, render_template, request
 
+from . import GMAPS
 from .main import app
 
 
 @app.route("/")
 def home():
-    return render_template("index.html")
+    return render_template("index.html", gmaps=GMAPS)
 
 
 @app.route("/question", methods=["POST"])

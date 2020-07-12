@@ -1,10 +1,9 @@
- function initMap() {
+function initMap() {
 
         }
 let mapID = 0;
 let message;
 let address;
-let input = document.getElementById("inputText");
 
 let welcome = "Bonjour mon ptit! Ta maman m'a dit que ton sens de l'orientation était proche du zéro absolu! Si tu as" +
     " besoin de te rendre quelque part, demande-moi, je sais tout! Enfin presque... T'aurais pas vu mon dentier? ";

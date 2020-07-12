@@ -2,6 +2,8 @@ from typing import Dict, List
 
 import requests
 
+from . import GMAPS
+
 
 def get_location(questions: List) -> List[Dict]:
     """
@@ -14,7 +16,7 @@ def get_location(questions: List) -> List[Dict]:
     results = [
         requests.get(
             "https://maps.googleapis.com/maps/api/geocode/json",
-            {"address": address, "key": "AIzaSyAI6WPMSEM0YvN81wqDaZsnbNmKNldwe_4"},
+            {"address": address, "key": GMAPS},
         ).json()
         for address in questions
     ]
