@@ -1,10 +1,5 @@
 # Created by .ignore support plugin (hsz.mobi)
-.idea/.gitignore
-.idea/OCR-Projet7.iml
-.idea/inspectionProfiles/
-.idea/misc.xml
-.idea/modules.xml
-.idea/vcs.xml
+.idea/
 app/__pycache__/
 maps/__pycache__/
 wiki/__pycache__/

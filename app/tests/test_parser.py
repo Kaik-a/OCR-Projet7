@@ -14,13 +14,13 @@ def test_parse():
 
     assert parser.parse(MENTOR_1) == [
         "comment s'est passé ta soirée avec grandma hier soir?",
-        "où se trouve le musée d'art et d'histoire de fribourg," " s'il te plaît?",
+        "où se trouve le musée d'art et d'histoire de fribourg, s'il te plaît?",
     ]
 
     assert parser.parse(MENTOR_2) == [
         "bonsoir grandpy, j'espère que tu as passé une belle semaine. est-ce "
-        "que tu pourrais m'indiquer l'adresse de la tour eiffel? merci d'avance"
-        " et salutations à mamie."
+        "que tu pourrais m'indiquer l'adresse de la tour eiffel? merci "
+        "d'avance et salutations à mamie."
     ]
 
 
@@ -29,17 +29,16 @@ def test_unclutter():
     Function must remove from string all the words from parser.stop_words.
     """
 
-    assert parser.unclutter([OCR_QUESTION]) == ["Est- l' d'OpenClassrooms ?"]
+    assert parser.unclutter([OCR_QUESTION]) == ["Est- ' 'OpenClassrooms ?"]
 
     assert parser.unclutter([MENTOR_1]) == [
-        "Salut grandpy! Comment s' passé soirée Grandma hier soir? "
-        "Au fait, j' pense, pourrais- m'indiquer où trouve musée d'art "
-        "d'histoire Fribourg, s' plaît?"
+        "Salut ! Comment ' passé soirée Grandma hier soir? Au , ' , - "
+        "'indiquer où trouve musée 'art 'histoire Fribourg, ' plaît?"
     ]
 
     assert parser.unclutter([MENTOR_2]) == [
-        "Bonsoir Grandpy, j'espère passé belle semaine. Est- m'indiquer "
-        "l' tour eiffel? Merci d'avance salutations à Mamie."
+        "Bonsoir Grandpy, 'espère passé belle semaine. Est- 'indiquer ' tour"
+        " eiffel? Merci 'avance salutations à Mamie."
     ]
 
 
@@ -77,5 +76,5 @@ def test_prepare():
     ]
 
     assert parser.prepare(MENTOR_2) == [
-        " espere belle semaine indiquer tour eiffel " "avance salutations mamie"
+        " espere belle semaine indiquer tour eiffel avance salutations mamie"
     ]

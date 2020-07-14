@@ -1,3 +1,4 @@
+"""Tests on maps module"""
 import unittest.mock as mock
 
 import requests

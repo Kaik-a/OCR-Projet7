@@ -1,3 +1,5 @@
+"""Tests constants"""
+
 EIFFEL_TOWER_ABSTRACT = (
     "\n\n\n\n\n\nLa tour Eiffel  est une tour de fer "
     "puddlé de 324\xa0mètres de hauteur (avec antennes) "

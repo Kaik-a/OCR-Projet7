@@ -17,15 +17,14 @@ def parse(to_parse: str) -> List:
     """
     to_parse = to_parse.lower()
 
-    pattern = r"((\bquel|\bquelle|\bquels|\bquelles|\bou|\boù|\bcomment).*?[?])"
+    pattern = r"((\bquel|\bquelle|\bquels|\bquelles|\bou|\boù|\bcomment)" r".*?[?])"
     matches = findall(pattern, to_parse)
 
     parsed = [match[0] for match in matches]
 
     if parsed:
         return parsed
-    else:
-        return [to_parse]
+    return [to_parse]
 
 
 def unclutter(questions: list) -> List:
@@ -36,8 +35,11 @@ def unclutter(questions: list) -> List:
     :return: List
     """
     for index, question in enumerate(questions):
-        for stopword in stopwords:
+        for stopword in STOPWORDS:
             question = sub(r"\b" + f"{stopword}" r"\b ", " ", question)
+
+            if not question.isspace():
+                question = sub(r"\b" + f"{stopword}" r"\b", " ", question)
 
         questions[index] = question
         # remove multiple contiguous spaces
@@ -70,7 +72,7 @@ def punctuation_and_accent(questions: List):
     return questions
 
 
-stopwords = {
+STOPWORDS: set = {
     "a",
     "abord",
     "absolument",

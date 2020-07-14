@@ -56,8 +56,8 @@ def get_info_on_loc(locations: List[Dict], parsed: List) -> Union[str, List]:
         return get_summary(
             [result for result in results[0] if result["title"] == best_match].pop()
         )
-    else:
-        return NULL_ANSWER
+
+    return NULL_ANSWER
 
 
 def get_summary(page: Dict) -> str:

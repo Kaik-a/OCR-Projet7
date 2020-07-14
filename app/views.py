@@ -1,19 +1,29 @@
+"""Render views on navigator"""
 import app.maps as maps
 import app.parser as parser
 import app.wiki as wiki
 from flask import jsonify, render_template, request
 
 from . import GMAPS
-from .main import app
+from .main import APP  # pylint: disable=cyclic-import
 
 
-@app.route("/")
+@APP.route("/")
 def home():
+    """
+    Main page render
+
+    :return: _render
+    """
     return render_template("index.html", gmaps=GMAPS)
 
 
-@app.route("/question", methods=["POST"])
+@APP.route("/question", methods=["POST"])
 def question():
+    """
+    /question page process
+    :return: Dict
+    """
     questions = request.data.decode("utf-8")
 
     parsed = parser.prepare(questions)

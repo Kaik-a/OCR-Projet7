@@ -1,3 +1,4 @@
+"""Module to get coordonate of a given place"""
 from typing import Dict, List
 
 import requests

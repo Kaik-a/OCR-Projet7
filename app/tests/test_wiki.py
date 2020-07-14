@@ -55,10 +55,10 @@ def test_get_summary():
                             "Gustave Eiffel et ses collaborateurs pour "
                             "l’Exposition universelle de Paris de 1889, "
                             "et initialement nommée «\xa0tour de "
-                            "300\xa0mètres\xa0», ce monument est devenu le "
-                            "symbole de la capitale française et un site "
-                            "touristique de premier plan\xa0: il s’agit du "
-                            "troisième site culturel français payant le "
+                            "300\xa0mètres\xa0», ce monument est devenu le"
+                            " symbole de la capitale française et un site "
+                            "touristique de premier plan\xa0: il s’agit du"
+                            " troisième site culturel français payant le "
                             "plus visité en 2015, avec 5,9\xa0millions de "
                             "visiteurs en 2016 et du monument culturel "
                             'payant <span title="Ce passage semble en '
@@ -68,10 +68,10 @@ def test_get_summary():
                             'style="padding-left:2px;">['
                             'Contradiction]</sup><sup class="reference '
                             'cite_virgule">,</sup> en 2011. Depuis son '
-                            "ouverture au public, elle a accueilli plus de "
-                            "300 millions de visiteurs.\n</p><p>D’une "
-                            "hauteur de 312\xa0mètres à l’origine, la tour "
-                            "Eiffel est restée le monument le plus élevé "
+                            "ouverture au public, elle a accueilli plus de"
+                            " 300 millions de visiteurs.\n</p><p>D’une "
+                            "hauteur de 312\xa0mètres à l’origine, la tour"
+                            " Eiffel est restée le monument le plus élevé "
                             "du monde pendant quarante ans. Le second "
                             "niveau du troisième étage, appelé parfois "
                             "quatrième étage, situé à 279,11\xa0mètres, "
