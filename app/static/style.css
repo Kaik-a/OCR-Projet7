@@ -280,8 +280,8 @@ footer {
 }
 
 @media screen and (max-device-width: 480px) {
-    .received-answer {
-        font-size: 20px;
+    .received-msg-inbox p {
+        font-size: 25px;
     }
 }
 

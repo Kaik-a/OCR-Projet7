@@ -7,6 +7,10 @@ from . import EIFFEL_TOWER_LOC
 
 
 def test_get_location():
+    """
+    Function must parse request return value to store the
+    coordonates and the adress of the desired location.
+    """
     requests.get.json = mock.Mock(
         return_value=[
             {

@@ -5,6 +5,9 @@ from . import MENTOR_1, MENTOR_2, OCR_QUESTION
 
 
 def test_parse():
+    """
+    Function must retrieve the questions inside sentences asked to the bot.
+    """
     assert parser.parse(OCR_QUESTION) == [
         "est-ce que tu connais l'adresse d'openclassrooms ?"
     ]
@@ -22,6 +25,10 @@ def test_parse():
 
 
 def test_unclutter():
+    """
+    Function must remove from string all the words from parser.stop_words.
+    """
+
     assert parser.unclutter([OCR_QUESTION]) == ["Est- l' d'OpenClassrooms ?"]
 
     assert parser.unclutter([MENTOR_1]) == [
@@ -37,6 +44,9 @@ def test_unclutter():
 
 
 def test_punctuation_and_accent():
+    """
+    Function must remove punctuation and accents from string.
+    """
     assert parser.punctuation_and_accent([OCR_QUESTION]) == [
         "Est ce que tu connais l adresse d OpenClassrooms "
     ]
@@ -55,6 +65,10 @@ def test_punctuation_and_accent():
 
 
 def test_prepare():
+    """
+    Function must prepare the entire sentence asked to the bot to send to
+    gmaps geocoding API.
+    """
     assert parser.prepare(OCR_QUESTION) == [" openclassrooms "]
 
     assert parser.prepare(MENTOR_1) == [

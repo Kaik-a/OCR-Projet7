@@ -36,12 +36,9 @@
         </div>
         <div class="msg-bottom">
             <div class="input-group">
-                <form id="outgoing-form" onsubmit="outgoingMessage()">
+                <form id="outgoing-form" onsubmit="outgoingMessage(this)">
                     <input name="inputName" id="inputText" type="text" class="form-control" placeholder="Aa" />
                     <div class="input-group-append">
-                        <span class="input-group-text">
-                            <button id="subButton" class="btn" onclick="outgoingMessage()"><i class="fa fa-paper-plane"></i></button>
-                        </span>
                     </div>
                 </form>
             </div>

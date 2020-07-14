@@ -4,10 +4,14 @@ import unittest.mock as mock
 import requests
 from app import wiki
 
+from ..wiki import INTRODUCTION
 from . import EIFFEL_TOWER_ABSTRACT, EIFFEL_TOWER_LOC, OCR_QUESTION
 
 
 def test_get_info_on_loc():
+    """
+    Function must return location of given place.
+    """
     requests.get.json = mock.Mock(
         return_value={"query": {"geosearch": {"title": "tour eiffel"}}}
     )
@@ -28,6 +32,9 @@ def test_get_info_on_loc():
 
 
 def test_get_summary():
+    """
+    Function must retrieve summary of place on a given location.
+    """
     patch = mock.patch(
         "requests.get.json",
         new=mock.Mock(
@@ -94,12 +101,8 @@ def test_get_summary():
 
 
 def test_endow():
-    assert any(
-        element in wiki.endow(OCR_QUESTION)
-        for element in [
-            "Ça me rappelle une histoire.",
-            "Tu sais?",
-            "Quand j'était plus jeune, on m'a dit que:",
-            "Au fait.",
-        ]
-    )
+    """
+    Function must add decorator to given sentence.
+    """
+    test = wiki.endow(OCR_QUESTION)
+    assert any(element in test for element in INTRODUCTION)

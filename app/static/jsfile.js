@@ -139,9 +139,9 @@ function receivedMessage(dict_answer) {
     }
 }
 
-let clickQuestion = document.getElementById("subButton");
+let clickQuestion = document.getElementById("outgoing-form");
 
-clickQuestion.addEventListener("click", function (event) {
+clickQuestion.addEventListener("submit", function (event) {
     fetch("/question", {
         method: "POST",
         body: JSON.stringify(message)

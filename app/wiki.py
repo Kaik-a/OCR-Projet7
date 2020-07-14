@@ -11,6 +11,13 @@ NULL_ANSWER = (
     "language de jeuns, tu peux poser ta question correctement ?"
 )
 
+INTRODUCTION: List = [
+    "Ça me rappelle une histoire.",
+    "Tu sais?",
+    "Quand j'était plus jeune, on m'a dit que:",
+    "Au fait.",
+]
+
 
 def get_info_on_loc(locations: List[Dict], parsed: List) -> Union[str, List]:
     """
@@ -53,7 +60,7 @@ def get_info_on_loc(locations: List[Dict], parsed: List) -> Union[str, List]:
 
 def get_summary(page: Dict) -> str:
     """
-    Get summary from wikipedi.
+    Get summary from wikipedia.
 
     :param page: page to find the summary
     :return: str summary
@@ -84,11 +91,4 @@ def endow(summary: str) -> str:
     if summary == NULL_ANSWER:
         return summary
 
-    introduction: List = [
-        "Ça me rappelle une histoire.",
-        "Tu sais?",
-        "Quand j'était plus jeune, on m'a dit que:",
-        "Au fait.",
-    ]
-
-    return f"{choice(introduction)} {summary}"
+    return f"{choice(INTRODUCTION)} {summary}"
