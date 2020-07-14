@@ -46,6 +46,8 @@ def get_info_on_loc(locations: List[Dict], parsed: List) -> Union[str, List]:
 
     if len(results) >= 1 and possible_matches[0]:
         best_match: str = get_close_matches(parsed[0], possible_matches[0], 1)
+
+        # Select first best_match if exist, otherwise take first possible match
         if best_match:
             best_match = best_match[0]
         else:
@@ -75,8 +77,11 @@ def get_summary(page: Dict) -> str:
         },
     )
     fulltext = fullpage.json()["query"]["pages"][f'{page["pageid"]}']["extract"]
+
     summary = fulltext.split("<h2>")[0]
+
     pattern = "([<].*?[>])"
+
     return re.sub(pattern, "", summary)
 
 

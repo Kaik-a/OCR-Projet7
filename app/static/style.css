@@ -1,100 +1,58 @@
-#main_title {
-    background-color: deepskyblue;
-    border-radius: 10px;
-    padding: 30px;
-    max-width: 100%;
-}
-
-#grandpa {
-    float: right;
-    width: 50px
-}
-
-.map {
-    margin-left: 5%;
-    margin-right: 45%;
-    float: left;
-    width: 50%;
-    height: 70%;
-}
-
-#container {
-    bottom: 8px;
-    right: 8px;
-    position: absolute;
-
-}
-
-#main-container {
-    font-size: 0;
-    margin: 0 0;
-    padding: 0;
-    height: 80%
-}
-
-.profile-img {
-    max-width: 100%;
-    border-radius: 50%;
-}
-
-.msg-header {
-    width: 100%;
-    height: 10%;
-    border-bottom: none;
-    display: inline-block;
-    background-color: #007bff;
-}
-
-.msg-header-img {
-    border-radius: 50%;
-    padding: 0 0 0 0;
-    width: 40px;
-    margin-left: 5%;
-    margin-top: 12px;
-    float: left;
-}
-
-.active {
-    width: 20%;
-    float: left;
-    margin-top: 10px;
-}
-
-.active h4 {
-    font-size: 20px;
-    margin-left: 10px;
-    color: #fff;
-}
-
-.active h6 {
-    font-size: 10px;
-    margin-left: 10px;
-    line-height: 2px;
-    color: #fff;
-}
-
-.head {
-    margin-bottom: 1px;
-    background-color: #007bff;
-    height: 10%;
-    display: flex;
-}
-
 html, body {
     height: 100%;
     min-height: 100%;
 }
 
-.head h4 {
-    position: center;
+
+footer {
+    height: 5%;
+}
+
+.map {
+    float: left;
+    height: 70%;
+    margin-left: 5%;
+    margin-right: 45%;
+    width: 50%;
+}
+
+.profile-img {
+    border-radius: 50%;
+    max-width: 100%;
+}
+
+.msg-header {
+    background-color: #007bff;
+    border-bottom: none;
+    display: inline-block;
+    height: 10%;
+    width: 100%;
+}
+
+.msg-header-img {
+    border-radius: 50%;
+    float: left;
+    margin-left: 5%;
+    margin-top: 12px;
+    padding: 0 0 0 0;
+    width: 40px;
+}
+
+.active {
+    float: left;
+    margin-top: 10px;
+    width: 20%;
+}
+
+.head {
+    background-color: #007bff;
+    display: flex;
+    height: 10%;
+    margin-bottom: 1px;
 }
 
 .foot {
     display: grid;
-}
-
-footer {
-    height: 5%;
 }
 
 .column1 {
@@ -122,28 +80,28 @@ footer {
 }
 
 .chat-page {
+    font-size: 0;
     height: 80%;
     padding: 0 0 0 0;
-    font-size: 0;
 }
 
 .msg-inbox {
-    height: 100%;
     border: 1px solid #ccc;
+    height: 100%;
     overflow: hidden;
     padding-bottom: 30px;
 }
 
 .msg-page {
     height: 100%;
-    overflow-y: auto;
     margin-top: 0;
+    overflow-y: auto;
 }
 
 .received-chats-img {
     display: inline-block;
-    width: 20px;
     float: left;
+    width: 20px;
 }
 
 .received-msg {
@@ -158,15 +116,6 @@ footer {
     width: 57%;
 }
 
-.received-msg-inbox p {
-    background: #efefef none repeat scroll 0 0;
-    border-radius: 10px;
-    color: #646464;
-    font-size: 14px;
-    margin: 0;
-    padding: 5px 10px 5px 12px;
-}
-
 .time {
     color: #777;
     display: block;
@@ -175,33 +124,24 @@ footer {
 }
 
 .outgoing-chats {
-    overflow: hidden;
     margin: 26px 20px;
+    overflow: hidden;
 }
 
 .chats {
     height: 100%
 }
+
 .outgoing-chats-msg {
     float: left;
-    width: 46%;
     margin-left: 45%;
-}
-
-.outgoing-chats-msg p{
-    background: #007bff none repeat scroll 0 0;
-    color: #fff;
-    border-radius: 10px;
-    font-size: 14px;
-    margin: 0;
-    padding: 5px 10px 5px 12px;
-    width: 100%;
+    width: 46%;
 }
 
 .outgoing-chats-img {
     display: inline-block;
-    width: 20px;
     float: right;
+    width: 20px;
 }
 
 .received-msg {
@@ -215,29 +155,20 @@ footer {
     width: 57%;
 }
 
-.received-msg-inbox p {
-    background: #efefef none repeat scroll 0 0;
-    border-radius: 10px;
-    color: #646464;
-    font-size: 14px;
-    margin: 0;
-    padding: 5px 10px 5px 12px;
-}
-
 .msg-bottom {
-    height: 10%;
     background-color: #007bff;
+    height: 10%;
 }
 
 .input-group {
-    float: right;
-    margin-top: 10px;
-    margin-right: 20px;
-    outline: none !important;
-    border-radius: 20px;
-    width: 61% !important;
-    height: 70%;
     background-color: #fff;
+    border-radius: 20px;
+    float: right;
+    height: 70%;
+    margin-right: 20px;
+    margin-top: 10px;
+    outline: none !important;
+    width: 61% !important;
 }
 
 .form-control {
@@ -251,108 +182,90 @@ footer {
     height: 80%
 }
 
-.form-control:focus {
-    border-color: #646464 !important;
-    box-shadow: none !important;
-    border-radius: 20px;
-}
-
-#subButton {
-   display: none
-}
 
 .page-name {
     font-family: Brush Script MT, serif;
 }
 
 .motto {
-    font-style: italic;
     font-size: 70%;
+    font-style: italic;
 }
 
-#logo {
-    border-radius: 50%;
+.form-control:focus {
+    border-color: #646464 !important;
+    border-radius: 20px;
+    box-shadow: none !important;
 }
 
-#author {
-    position: relative;
-    left: 5px;
+.active h4 {
+    color: #fff;
+    font-size: 20px;
+    margin-left: 10px;
 }
 
-@media screen and (max-device-width: 480px) {
-    .msg-page p {
-        font-size: 25px;
-    }
-
-    .page-name {
-        font-size: 40px;
-    }
-
-    .motto {
-        font-size: 25px;
-    }
-
-    .msg-header h4 {
-        font-size: 30px;
-    }
-
-    .msg-header h6 {
-        font-size: 20px;
-    }
-
-    #inputText {
-        font-size: 25px;
-    }
-
-    .time {
-        font-size: 20px;
-    }
-
-    .link {
-        font-size: 25px;
-    }
-
-    #author {
-        font-size: 30px;
-    }
+.active h6 {
+    color: #fff;
+    font-size: 10px;
+    line-height: 2px;
+    margin-left: 10px;
 }
 
-@media screen and (min-device-width: 481px) and (max-device-width: 1024px) {
-    .msg-page p {
-        font-size: 20px;
-    }
+.outgoing-chats-msg p {
+    background: #007bff none repeat scroll 0 0;
+    border-radius: 10px;
+    color: #fff;
+    font-size: 14px;
+    margin: 0;
+    padding: 5px 10px 5px 12px;
+    width: 100%;
+}
 
-    .page-name {
-        font-size: 24px;
-    }
+.head h4 {
+    position: center;
+}
 
-    .motto {
-        font-size: 20px;
-    }
+.received-msg-inbox p {
+    background: #efefef none repeat scroll 0 0;
+    border-radius: 10px;
+    color: #646464;
+    font-size: 14px;
+    margin: 0;
+    padding: 5px 10px 5px 12px;
+}
 
-    .msg-header h4 {
-        font-size: 25px;
-    }
+.received-msg-inbox p {
+    background: #efefef none repeat scroll 0 0;
+    border-radius: 10px;
+    color: #646464;
+    font-size: 14px;
+    margin: 0;
+    padding: 5px 10px 5px 12px;
+}
 
-    .msg-header h6 {
-        font-size: 15px;
-    }
+#main_title {
+    background-color: deepskyblue;
+    border-radius: 10px;
+    max-width: 100%;
+    padding: 30px;
+}
 
-    #inputText {
-        font-size: 20px;
-    }
+#grandpa {
+    float: right;
+    width: 50px
+}
 
-    .time {
-        font-size: 15px;
-    }
+#container {
+    bottom: 8px;
+    position: absolute;
+    right: 8px;
 
-    .link {
-        font-size: 20px;
-    }
-
-    #author {
-        font-size: 25px;
-    }
+}
+#main-container {
+    font-size: 0;
+    height: 80%;
+    margin: 0 0;
+    padding: 0;
 }
 
 #inputText {
@@ -360,6 +273,91 @@ footer {
 }
 
 #outgoing-form {
-    width: 100%;
     height: 100%;
+    width: 100%;
+}
+
+#logo {
+    border-radius: 50%;
+}
+
+#author {
+    left: 5px;
+    position: relative;
+}
+
+@media screen and (max-device-width: 480px) {
+    .page-name {
+    font-size: 40px;
+    }
+
+    .motto {
+    font-size: 25px;
+    }
+
+    .time {
+    font-size: 20px;
+    }
+
+    .link {
+    font-size: 25px;
+    }
+
+    .msg-page p {
+        font-size: 25px;
+    }
+
+    .msg-header h4 {
+        font-size: 30px;
+    }
+
+    .msg-header h6 {
+        font-size: 20px;
+    }
+
+    #inputText {
+        font-size: 25px;
+    }
+
+    #author {
+    font-size: 30px;
+    }
+}
+
+@media screen and (min-device-width: 481px) and (max-device-width: 1024px) {
+    .page-name {
+    font-size: 24px;
+    }
+
+    .motto {
+    font-size: 20px;
+    }
+
+    .time {
+    font-size: 15px;
+    }
+
+
+    .link {
+    font-size: 20px;
+    }
+
+    .msg-page p {
+        font-size: 20px;
+    }
+    .msg-header h4 {
+        font-size: 25px;
+    }
+
+    .msg-header h6 {
+        font-size: 15px;
+    }
+
+    #inputText {
+        font-size: 20px;
+    }
+
+    #author {
+    font-size: 25px;
+    }
 }

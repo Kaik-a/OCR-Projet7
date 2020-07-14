@@ -92,11 +92,14 @@ def test_get_summary():
             }
         ),
     )
+
     patch.start()
+
     assert (
         wiki.get_summary({"title": "Tour Eiffel", "pageid": 1359783})
         == EIFFEL_TOWER_ABSTRACT
     )
+
     patch.stop()
 
 
@@ -105,4 +108,5 @@ def test_endow():
     Function must add decorator to given sentence.
     """
     test = wiki.endow(OCR_QUESTION)
+
     assert any(element in test for element in INTRODUCTION)

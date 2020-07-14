@@ -26,6 +26,7 @@ def test_get_location():
     )
 
     eiffel_tower = maps.get_location(["tour eiffel"])[0]
+
     assert eiffel_tower["coordonates"] == EIFFEL_TOWER_LOC
 
     assert (

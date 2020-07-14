@@ -1,8 +1,12 @@
+// function needed by google maps api
 function initMap() {
+}
 
-        }
+// number of map
 let mapID = 0;
+
 let message;
+
 let address;
 
 let welcome = "Bonjour mon ptit! Ta maman m'a dit que ton sens de l'orientation était proche du zéro absolu! Si tu as" +
@@ -10,6 +14,7 @@ let welcome = "Bonjour mon ptit! Ta maman m'a dit que ton sens de l'orientation 
 
 receivedMessage({'message' : welcome});
 
+// Get current date and format it
 function getDate() {
     const monthNames =  [
         "Janvier", "Février", "Mars", "Avril", "Mai", "Juin", "Juillet",
@@ -24,6 +29,7 @@ function getDate() {
     hh = hh.toString();
     mm = mm.toString();
 
+    // If hour of minutes has only one character, add a "0" before.
     if (hh.length !== 2) {
         hh = "0" + hh
     }
@@ -35,8 +41,8 @@ function getDate() {
     return dd + " " + MM + " | " + hh + ":" + mm
 }
 
+// Message sent by user
 function outgoingMessage() {
-
     let inputText = document.getElementById("inputText");
     message = inputText.value;
 
@@ -44,6 +50,7 @@ function outgoingMessage() {
         return
     }
 
+    // Empty input value
     inputText.value = null;
 
     let outgoing = document.createElement("div");
@@ -75,9 +82,12 @@ function outgoingMessage() {
     outgoing.appendChild(outgoingChatImg);
     msgPage.appendChild(outgoing);
 
+    // Scroll to message
     outgoing.scrollIntoView()
 }
 
+
+// Message sent by server
 function receivedMessage(dict_answer) {
     let received = document.createElement("div");
     received.className = "received-chats";
@@ -106,6 +116,7 @@ function receivedMessage(dict_answer) {
 
     let msgPage = document.getElementById("chat-zone");
 
+    // Create a map if location is found
     if (('location' in dict_answer)&&('lat' in dict_answer['location'])&&(dict_answer['location']['lat']))  {
         let map = document.createElement("div");
         map.className = "map";
@@ -131,6 +142,7 @@ function receivedMessage(dict_answer) {
     received.appendChild(receivedMsg);
     msgPage.appendChild(received);
 
+    // Scroll only to first message sent by server
     if ('scroll' in dict_answer) {
         received.scrollIntoView()
     }

@@ -1,15 +1,3 @@
-OCR_QUESTION = "Est-ce que tu connais l'adresse d'OpenClassrooms ?"
-MENTOR_1 = (
-    "Salut grandpy! Comment s'est passé ta soirée avec Grandma hier "
-    "soir? Au fait, pendant que j'y pense, pourrais-tu m'indiquer où "
-    "se trouve le musée d'art et d'histoire de Fribourg, s'il te plaît?"
-)
-MENTOR_2 = (
-    "Bonsoir Grandpy, j'espère que tu as passé une belle semaine. "
-    "Est-ce que tu pourrais m'indiquer l'adresse de la tour eiffel? "
-    "Merci d'avance et salutations à Mamie."
-)
-EIFFEL_TOWER_LOC = {"lat": 48.85837009999999, "lng": 2.2944813}
 EIFFEL_TOWER_ABSTRACT = (
     "\n\n\n\n\n\nLa tour Eiffel  est une tour de fer "
     "puddlé de 324\xa0mètres de hauteur (avec antennes) "
@@ -42,3 +30,19 @@ EIFFEL_TOWER_ABSTRACT = (
     " scientifiques, elle sert aujourd’hui d’émetteur de"
     " programmes radiophoniques et télévisés.\n\n\n\n"
 )
+
+EIFFEL_TOWER_LOC = {"lat": 48.85837009999999, "lng": 2.2944813}
+
+MENTOR_1 = (
+    "Salut grandpy! Comment s'est passé ta soirée avec Grandma hier "
+    "soir? Au fait, pendant que j'y pense, pourrais-tu m'indiquer où "
+    "se trouve le musée d'art et d'histoire de Fribourg, s'il te plaît?"
+)
+
+MENTOR_2 = (
+    "Bonsoir Grandpy, j'espère que tu as passé une belle semaine. "
+    "Est-ce que tu pourrais m'indiquer l'adresse de la tour eiffel? "
+    "Merci d'avance et salutations à Mamie."
+)
+
+OCR_QUESTION = "Est-ce que tu connais l'adresse d'OpenClassrooms ?"
