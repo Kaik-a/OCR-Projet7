@@ -55,7 +55,7 @@
 }
 
 .active {
-    width: 120px;
+    width: 20%;
     float: left;
     margin-top: 10px;
 }
@@ -280,7 +280,77 @@ footer {
 }
 
 @media screen and (max-device-width: 480px) {
-    .received-msg-inbox p {
+    .msg-page p {
+        font-size: 25px;
+    }
+
+    .page-name {
+        font-size: 40px;
+    }
+
+    .motto {
+        font-size: 25px;
+    }
+
+    .msg-header h4 {
+        font-size: 30px;
+    }
+
+    .msg-header h6 {
+        font-size: 20px;
+    }
+
+    #inputText {
+        font-size: 25px;
+    }
+
+    .time {
+        font-size: 20px;
+    }
+
+    .link {
+        font-size: 25px;
+    }
+
+    #author {
+        font-size: 30px;
+    }
+}
+
+@media screen and (min-device-width: 481px) and (max-device-width: 1024px) {
+    .msg-page p {
+        font-size: 20px;
+    }
+
+    .page-name {
+        font-size: 24px;
+    }
+
+    .motto {
+        font-size: 20px;
+    }
+
+    .msg-header h4 {
+        font-size: 25px;
+    }
+
+    .msg-header h6 {
+        font-size: 15px;
+    }
+
+    #inputText {
+        font-size: 20px;
+    }
+
+    .time {
+        font-size: 15px;
+    }
+
+    .link {
+        font-size: 20px;
+    }
+
+    #author {
         font-size: 25px;
     }
 }
