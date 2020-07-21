@@ -22,6 +22,7 @@ def home():
 def question():
     """
     /question page process
+
     :return: Dict
     """
     questions = request.data.decode("utf-8")

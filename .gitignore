@@ -7,3 +7,7 @@ wiki/__pycache__/
 .DS_Store
 /app/static/.DS_Store
 app/tests/__pycache__/
+/Makefile
+/source/
+/build/
+__pycache__/

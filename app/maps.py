@@ -33,7 +33,7 @@ def get_location(questions: List) -> List[Dict]:
         if result["results"]
     ]
 
-    # Conver to fload
+    # Convert to fload
     for location in locations:
         location["coordonates"]["lat"] = float(location["coordonates"]["lat"])
         location["coordonates"]["lng"] = float(location["coordonates"]["lng"])

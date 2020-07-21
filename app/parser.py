@@ -17,7 +17,7 @@ def parse(to_parse: str) -> List:
     """
     to_parse = to_parse.lower()
 
-    pattern = r"((\bquel|\bquelle|\bquels|\bquelles|\bou|\boù|\bcomment)" r".*?[?])"
+    pattern = r"((\bquel|\bquelle|\bquels|\bquelles|\bou|\boù|\bcomment).*?[?])"
     matches = findall(pattern, to_parse)
 
     parsed = [match[0] for match in matches]
